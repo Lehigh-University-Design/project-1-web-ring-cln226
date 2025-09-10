@@ -1,25 +1,214 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Running by Cara</title>
 
-        <title>Running by Cara</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-    <img src="assets/runningcaras.png" width="2000">
-    <h1>Welcome!</h1>
-        <p>Cara loves to run. Here are her unprofessional tips and highlights as someone who runs for fun!</p>
-    <a href="tips.html">
-    <img src="assets/tips button.png" alt="Tips Button">
-<a href="whyrun.html"> 
-  <img src="assets/whyrun.png" alt="Why Run? Button">
-</a>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet" />
 
-    </body>
-    </html>
+  <style>
+    body {
+      background-color: white;
+      color: orangered;
+      font-family: 'Kite One', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+      cursor: url('assets/mouse.png') 8 8, auto;
+    }
+
+    h1 {
+      font-size: 80px;
+      opacity: 0;
+      animation: fadeIn 0.7s ease-in forwards;
+    }
+
+    p.intro {
+      font-size: 18px;
+      opacity: 0;
+      animation: fadeIn 0.7s ease-in forwards;
+      animation-delay: 0.7s;
+    }
+
+    .grid-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .grid-item {
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease-in forwards;
+    }
+
+    .grid-item:nth-child(1) img {
+      animation-delay: 1.5s;
+    }
+
+    .grid-item:nth-child(2) img {
+      animation-delay: 2.2s;
+    }
+
+    .grid-item:nth-child(3) img {
+      animation-delay: 2.9s;
+    }
+
+    /* Button styling */
+    .btn {
+      background-color: orangered;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      display: inline-block;
+      text-align: center;
+      margin-top: 10px;
+      font-family: 'Kite One', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease-in forwards;
+    }
+
+    .btn:hover {
+      background-color: #e04e00;
+    }
+
+    .grid-item:nth-child(1) .btn {
+      animation-delay: 2.1s;
+    }
+
+    .grid-item:nth-child(2) .btn {
+      animation-delay: 2.8s;
+    }
+
+    .grid-item:nth-child(3) .btn {
+      animation-delay: 3.5s;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ❤️ Floating heart container */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: orangered;
+      transform: rotate(-45deg);
+      animation: floatUp 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 7px;
+    }
+
+    .heart.pink {
+      background-color: pink;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(-45deg) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) translateX(10px) rotate(-45deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome!</h1>
+  <p class="intro">Cara loves to run. Here are her unprofessional tips & running favorites</p>
+
+  <div class="grid-row">
+    <div class="grid-item">
+      <img src="assets/cara1.png" alt="running me 1" />
+      <a href="whyrun.html" target="_blank" class="btn">Why Run?</a>
+    </div>
+    <div class="grid-item">
+      <img src="assets/cara2.png" alt="running me 2" />
+      <a href="tips.html" target="_blank" class="btn">Tips</a>
+    </div>
+    <div class="grid-item">
+      <img src="assets/cara3.png" alt="running me 3" />
+      <a href="favorites.html" target="_blank" class="btn">Favorites</a>
+    </div>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    <span class="heart orangered" style="left: 10%; animation-delay: 0s;"></span>
+    <span class="heart pink" style="left: 25%; animation-delay: 1.2s;"></span>
+    <span class="heart orangered" style="left: 40%; animation-delay: 0.8s;"></span>
+    <span class="heart pink" style="left: 60%; animation-delay: 1.7s;"></span>
+    <span class="heart orangered" style="left: 80%; animation-delay: 1.5s;"></span>
+  </div>
+
+</body>
+</html>
